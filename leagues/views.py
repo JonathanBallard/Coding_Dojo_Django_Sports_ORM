@@ -6,6 +6,8 @@ from . import team_maker
 def index(request):
 	context = {
 		"leagues": League.objects.all(),
+		"baseball": League.objects.filter(sport="Baseball"),
+		"womens": League.objects.filter(name__startswith="Women's"),
 		"teams": Team.objects.all(),
 		"players": Player.objects.all(),
 	}
